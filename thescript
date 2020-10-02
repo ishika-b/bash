@@ -1,0 +1,12 @@
+#!/bin/bash
+
+url1=https://raw.githubusercontent.com/aakashkag/People-Name-List/master/Crawled-People-Names/First%20names
+url2=https://raw.githubusercontent.com/MatthiasWinkelmann/firstname-database/master/firstnames.csv
+
+comm -12 <(curl -N $url1 |sort) <(curl -N $url2| grep -P -o ^[A-Z,a-z]*| sed 's/[A-Z]/\L&/g'| sort)
+
+
+
+
+
+
